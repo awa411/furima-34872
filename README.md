@@ -24,7 +24,7 @@
 | category_id        | integer    | null:false        |
 | status_id          | integer    | null:false        |
 | shipping_charge_id | integer    | null:false        |
-| shipment_area_ id  | integer    | null:false        |
+| state_id           | integer    | null:false        |
 | day_to_ship_id     | integer    | null:false        |
 | price              | integer    | null:false        |
 | user               | references | foreign_key: true |
