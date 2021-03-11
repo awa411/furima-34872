@@ -1,27 +1,24 @@
 ## Users Table
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| nickname      | string  | null: false |
-| email         | string  | null: false |
-| password      | string  | null: false |
-| last_name     | string  | null: false |
-| first_name    | string  | null: false |
-| last_name     | string  | null: false |
-| first_name    | string  | null: false |
-| year_of_birth | integer | null: false |
-| year_of_birth | integer | null: false |
-| year_of_birth | integer | null: false |
+| Column                  | Type    | Options                   |
+| ----------------------- | ------- | ------------------------- |
+| nickname                | string  | null: false               |
+| email                   | string  | null: false, unique: true |
+| encrypted_password      | string  | null: false               |
+| last_name               | string  | null: false               |
+| first_name              | string  | null: false               |
+| last_name               | string  | null: false               |
+| first_name              | string  | null: false               |
+| birthday                | date    | null: false               |
 
 ### Association
  - has_many :items
- - has_one :buyer, dependent: :destroy
+ - has_many :buyers
 
  
  ## Items Table
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
-| image           | text       | null:false        |
 | item_name       | string     | null:false        |
 | about           | text       | null:false        |
 | category        | string     | null:false        |
@@ -42,12 +39,8 @@
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
-| card_number      | integer    | null: false       |
-| expiration_month | integer    | null: false       |
-| expiration_day   | integer    | null: false       |
-| security_code    | integer    | null: false       |
-| user_id          | references | foreign_key: true |
-| item_id          | references | foreign_key: true |
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
 
 ### Association
 
@@ -60,12 +53,12 @@
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
-| postal_code      | integer    | null: false       |
+| postal_code      | string     | null: false       |
 | state            | string     | null: false       |
 | city             | string     | null: false       |
-| address_line1    | string     | null: false       |
-| address_line2    | string     | null: false       |
-| phone_number     | integer    | null: false       |
+| town             | string     | null: false       |
+| building         | string     |                   |
+| phone_number     | string     | null: false       |
 | buyer_id         | references | foreign_key: true |
 
 ### Association
