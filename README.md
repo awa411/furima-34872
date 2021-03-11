@@ -1,24 +1,66 @@
-# README
+## Users Table
+| Column                  | Type    | Options                   |
+| ----------------------- | ------- | ------------------------- |
+| nickname                | string  | null: false               |
+| email                   | string  | null: false, unique: true |
+| encrypted_password      | string  | null: false               |
+| last_name               | string  | null: false               |
+| first_name              | string  | null: false               |
+| last_name               | string  | null: false               |
+| first_name              | string  | null: false               |
+| birthday                | date    | null: false               |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+ - has_many :items
+ - has_many :buyers
 
-Things you may want to cover:
+ 
+ ## Items Table
 
-* Ruby version
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| item_name          | string     | null:false        |
+| description        | text       | null:false        |
+| category_id        | integer    | null:false        |
+| status_id          | integer    | null:false        |
+| shipping_charge_id | integer    | null:false        |
+| state_id           | integer    | null:false        |
+| day_to_ship_id     | integer    | null:false        |
+| price              | integer    | null:false        |
+| user               | references | foreign_key: true |
 
-* System dependencies
+ ### Association
 
-* Configuration
+ - belongs_to :user
+ - has_one :buyer, dependent: :destroy
 
-* Database creation
 
-* Database initialization
+ ## Buyers Table
 
-* How to run the test suite
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- | 
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping_information, dependent: :destroy
 
-* ...
+
+## Shipping_information
+
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- | 
+| postal_code      | string     | null: false       |
+| state_id         | integer    | null: false       |
+| city             | string     | null: false       |
+| town             | string     | null: false       |
+| building         | string     |                   |
+| phone_number     | string     | null: false       |
+| buyer            | references | foreign_key: true |
+
+### Association
+
+- belongs_to :buyer
