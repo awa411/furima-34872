@@ -20,7 +20,7 @@
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
 | item_name          | string     | null:false        |
-| description_id     | integer    | null:false        |
+| description        | string     | null:false        |
 | category_id        | integer    | null:false        |
 | status_id          | integer    | null:false        |
 | shipping_charge_id | integer    | null:false        |
@@ -54,7 +54,7 @@
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
 | postal_code      | string     | null: false       |
-| state            | string     | null: false       |
+| state_id         | integer    | null: false       |
 | city             | string     | null: false       |
 | town             | string     | null: false       |
 | building         | string     |                   |
