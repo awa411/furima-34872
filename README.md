@@ -20,14 +20,14 @@
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
 | item_name          | string     | null:false        |
-| description        | text       | null:false        |
+| description_id     | integer    | null:false        |
 | category_id        | integer    | null:false        |
 | status_id          | integer    | null:false        |
 | shipping_charge_id | integer    | null:false        |
 | shipment_area_ id  | integer    | null:false        |
 | day_to_ship_id     | integer    | null:false        |
 | price              | integer    | null:false        |
-| user_id            | references | foreign_key: true |
+| user               | references | foreign_key: true |
 
  ### Association
 
@@ -59,7 +59,7 @@
 | town             | string     | null: false       |
 | building         | string     |                   |
 | phone_number     | string     | null: false       |
-| buyer_id         | references | foreign_key: true |
+| buyer            | references | foreign_key: true |
 
 ### Association
 
