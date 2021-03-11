@@ -17,17 +17,17 @@
  
  ## Items Table
 
-| Column          | Type       | Options           |
-| --------------- | ---------- | ----------------- |
-| item_name       | string     | null:false        |
-| about           | text       | null:false        |
-| category        | string     | null:false        |
-| status          | string     | null:false        |
-| shipping_charge | string     | null:false        |
-| shipment_area   | string     | null:false        |
-| day_to_ship     | string     | null:false        |
-| price           | integer    | null:false        |
-| user_id         | references | foreign_key: true |
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| item_name          | string     | null:false        |
+| description        | text       | null:false        |
+| category_id        | integer    | null:false        |
+| status_id          | integer    | null:false        |
+| shipping_charge_id | integer    | null:false        |
+| shipment_area_ id  | integer    | null:false        |
+| day_to_ship_id     | integer    | null:false        |
+| price              | integer    | null:false        |
+| user_id            | references | foreign_key: true |
 
  ### Association
 
