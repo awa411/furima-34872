@@ -13,8 +13,8 @@ class User < ApplicationRecord
   validates :last_name_kana,     presence: true
   validates :birthday,           presence: true
   validates_format_of :password, with: PASSWORD_REGEX
-  validates_format_of :last_name,         with: /\A(?=.*?[ぁ-ん])(?=.*?[ァ-ヶ])(?=.*?[一-龥々])+\z/
-  validates_format_of :first_name,        with: /\A(?=.*?[ぁ-ん])(?=.*?[ァ-ヶ])(?=.*?[一-龥々])+\z/
+  validates_format_of :last_name,         with: /([ぁ-んァ-ヶ一-龥々])+/
+  validates_format_of :first_name,        with: /([ぁ-んァ-ヶ一-龥々])+/
   validates_format_of :last_name_kana,    with: /[ァ-ヶ]+/
   validates_format_of :first_name_kana,   with: /[ァ-ヶ]+/
 
