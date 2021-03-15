@@ -50,7 +50,7 @@ class State < ActiveHash::Base
     {id: 48,  name: '沖縄県'},
   ]
 
-  include ActiveHash::Association
+  include ActiveHash::Associations
     has_many :items
 end
   
