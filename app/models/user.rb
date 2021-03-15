@@ -19,4 +19,5 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
   validates_format_of :password, with: PASSWORD_REGEX
+  has_many :items
 end
