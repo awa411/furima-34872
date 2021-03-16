@@ -35,7 +35,7 @@
  - has_one :buyer, dependent: :destroy
 
 
- ## Buyers Table
+ ## Orders Table
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
@@ -59,7 +59,7 @@
 | town             | string     | null: false       |
 | building         | string     |                   |
 | phone_number     | string     | null: false       |
-| buyer            | references | foreign_key: true |
+| order            | references | foreign_key: true |
 
 ### Association
 
