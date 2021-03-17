@@ -1,7 +1,8 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_1a2c50f9b35c44e53f1b6a04")
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
+  //Payjp.setPublicKey("pk_test_1a2c50f9b35c44e53f1b6a04");
   const form = document.getElementById("charge-form");
-  form.addEventListener("submit", (e) =>{
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     
     const formResult = document.getElementById("charge-form");
@@ -18,7 +19,7 @@ const pay = () => {
       if (status == 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
-        const tokenObj = `<input value=${token} name='token' type="hidden">`;
+        const tokenObj = `<input value=${token} name='token' type="hidden" > `;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
       
