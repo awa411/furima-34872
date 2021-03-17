@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :is_not_current_user, only: [:index, :create]
+  before_action :bought_item, only: [:index, :create]
+
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
@@ -23,12 +27,24 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] #"sk_test_a853ec938afb7e7a049a6596" 
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: Item.find(params[:item_id]).price,
         card: order_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def is_not_current_user
+    if current_user.id == Item.find(params[:item_id]).user_id
+      redirect_to root_path
+    end
+  end
+
+  def bought_item
+    if Order.where(item_id: params[:item_id]).exists?
+      redirect_to root_path
+    end
   end
 
 end
