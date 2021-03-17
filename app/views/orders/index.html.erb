@@ -5,35 +5,31 @@
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
-    
+    <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
+      <%= image_tag "item-sample.png", class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= @item.item_name %>
+          <%= "商品名" %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= @item.shipping_charge.name %></p>
+          <p class='item-price-text'>¥<%= '999,999,999' %></p>
+          <p class='item-price-sub-text'><%= '配送料負担' %></p>
         </div>
       </div>
     </div>
-    
+    <%# /購入内容の表示 %>
 
-  
+    <%# 支払額の表示 %>
     <div class='item-payment'>
       <h1 class='item-payment-title'>
         支払金額
       </h1>
       <p class='item-payment-price'>
-        <% if @item.shipping_charge.id == 2 %>
-        ¥<%= "#{(@item.price + @item.price * 0.1).floor}"%>
-        <% else %>
-        ¥<%= @item.price %>
-        <% end %>
+        ¥<%= "販売価格" %>
       </p>
     </div>
-    
+    <%# /支払額の表示 %>
 
     <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
