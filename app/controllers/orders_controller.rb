@@ -4,9 +4,6 @@ class OrdersController < ApplicationController
   before_action :order_record, only: :index
 
   def index
-<<<<<<< HEAD
-  end
-=======
     @order_address = OrderAddress.new
   end
   
@@ -47,5 +44,4 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
->>>>>>> b42aedbbe80d142c9a1b6bdcc97ab143b0ffacbe
 end

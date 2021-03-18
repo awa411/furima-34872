@@ -27,14 +27,8 @@
         <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
-<<<<<<< HEAD
-      <% else %> 
-        <%# 商品が売れていない場合はこちらを表示しましょう %>
-        <%= link_to "購入画面に進む", orders_path ,class:"item-red-btn"%>
-=======
       <% else %>
         <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
->>>>>>> b42aedbbe80d142c9a1b6bdcc97ab143b0ffacbe
       <% end %>
     <% end %>
 
