@@ -9,7 +9,7 @@ FactoryBot.define do
     day_to_ship_id           { rand(2..4) }
     price                    { rand(300..9_999_999) }
     association              :user
-
+    
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/cherry-blossom-6068004_1920.jpg'), filename: 'test_image.jpg')
     end
