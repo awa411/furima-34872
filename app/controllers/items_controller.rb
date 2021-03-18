@@ -18,11 +18,16 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
+  
   def show
   end
-
+  
   def edit
+    if Order.where(item_id: @item.id).exists?
+      if current_user.id == @item.user_id
+        redirect_to root_path
+      end
+    end
   end
 
   def update

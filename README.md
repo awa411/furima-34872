@@ -32,24 +32,25 @@
  ### Association
 
  - belongs_to :user
- - has_one :buyer, dependent: :destroy
+ - has_one :order, dependent: :destroy
 
 
- ## Buyers Table
+ ## Orders Table
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
 | user             | references | foreign_key: true |
 | item             | references | foreign_key: true |
+| price            | 
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping_information, dependent: :destroy
+- has_one :Address, dependent: :destroy
 
 
-## Shipping_information
+## Address
 
 | Column           | Type       | Options           |
 | ---------------- | ---------- | ----------------- | 
@@ -59,9 +60,8 @@
 | town             | string     | null: false       |
 | building         | string     |                   |
 | phone_number     | string     | null: false       |
-| buyer            | references | foreign_key: true |
+| order            | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :buyer
-bis
+- belongs_to :order
