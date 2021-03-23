@@ -19,5 +19,5 @@ class Item < ApplicationRecord
     validates :state_id
     validates :day_to_ship_id
   end
-  has_one_attached :image
+  has_many_attached :images
 end
