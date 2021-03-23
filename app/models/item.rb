@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :day_to_ship
   belongs_to :user
   with_options presence: true do
-    validates :image
+    validates :images
     validates :item_name
     validates :description
     validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
