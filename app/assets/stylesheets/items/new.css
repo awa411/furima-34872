@@ -90,7 +90,14 @@
 }
 
 /* /出品画像 */
+.image-list {
+  display: flex;
+}
 
+.image-content {
+  width: 100%;
+  height: 100%;
+}
 /* 商品名と商品説明 */
 .new-items {
   padding: 2vh 0;
