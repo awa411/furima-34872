@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = ItemsTag.new(item_params)
+   
     if @item.valid? 
       @item.save
       return redirect_to root_path
@@ -58,6 +59,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
-                                 :day_to_ship_id, :price, images: []).merge(user_id: current_user.id)
+                                 :day_to_ship_id, :price, :name).merge(user_id: current_user.id, images: params[:item][:images])
   end
 end

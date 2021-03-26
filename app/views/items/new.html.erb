@@ -127,6 +127,13 @@
       </p>
     </div>
     
+    <div class="tag-field", id='tag-field'>
+      <%= f.label :name, "タグ" %>
+      <%= f.text_field :name, class:"input-tag" %>
+    </div>
+      <div id="search-result">
+    </div>
+
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
