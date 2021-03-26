@@ -6,6 +6,12 @@ class ItemsController < ApplicationController
     @items = Item.includes(:user).order('created_at DESC')
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
+
   def new
     @item = ItemsTag.new
   end
