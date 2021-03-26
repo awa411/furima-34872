@@ -11,7 +11,6 @@ class OrderAddress
     validates :user_id
     validates :item_id
     validates :state_id, numericality: { other_than: 1 }
-    validates :token
     validates :price
   end
 

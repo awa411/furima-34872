@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   end
   
   def create
+    redirect_to new_card_path and return unless current_user.card.present?
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       pay_item
@@ -28,9 +29,10 @@ class OrdersController < ApplicationController
   
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer_token = current_user.card.customer_token
     Payjp::Charge.create(
       amount: order_params[:price],
-      card: order_params[:token],
+      customer: customer_token,
       currency: 'jpy'
     )
   end
