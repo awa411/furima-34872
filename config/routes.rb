@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'cards/new'
   devise_for :users
   root to: "items#index"
+  get 'items/items_search'
   resources :users, only: [:show, :update]
   resources :cards, only: [:new, :create]
   resources :items do

@@ -1,9 +1,14 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :search_item, only: [:index, :items_search, :show]
   before_action :find_item, only: [:show, :edit, :update, :destroy]
   before_action :is_current_user, only: [:edit, :update, :destroy]
   def index
     @items = Item.includes(:user).order('created_at DESC')
+  end
+
+  def items_search
+    @results = @p.result
   end
 
   def search
@@ -53,6 +58,10 @@ class ItemsController < ApplicationController
 
   private
 
+  def search_item
+    @p = Item.ransack(params[:q])
+  end
+
   def is_current_user
     unless current_user.id == @item.user_id
       redirect_to root_path
@@ -64,7 +73,12 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
+    if params.include?(:item)
+      params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
                                  :day_to_ship_id, :price, :name).merge(user_id: current_user.id, images: params[:item][:images])
+    else
+      params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
+        :day_to_ship_id, :price, :name).merge(user_id: current_user.id)
+    end
   end
 end

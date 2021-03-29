@@ -8,16 +8,6 @@ ja:
        first_name: 「名前」
        last_name_kana: 「苗字(カナ)」
        first_name_kana: 「名前(カナ)」
-     item:
-       item_name: 「商品名」
-       images: 「商品画像」
-       description: 「商品の説明」
-       price: 「販売価格」
-       category_id: 「カテゴリー」
-       status_id: 「商品の状態」
-       shipping_charge_id: 「配送料の負担」
-       state_id: 「発送元の地域」
-       day_to_ship_id: 「発送までの日数」
  activemodel:
    attributes:    
      order_address:
@@ -27,3 +17,14 @@ ja:
        state_id: 「都道府県」
        phone_number: 「電話番号」
        token: 「クレジットカード情報」
+     items_tag:
+       item_name: 「商品名」
+       images: 「商品画像」
+       description: 「商品の説明」
+       price: 「販売価格」
+       category_id: 「カテゴリー」
+       status_id: 「商品の状態」
+       shipping_charge_id: 「配送料の負担」
+       state_id: 「発送元の地域」
+       day_to_ship_id: 「発送までの日数」
+       name: 「タグ」
