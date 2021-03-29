@@ -6,18 +6,9 @@ class Item < ApplicationRecord
   belongs_to :state
   belongs_to :day_to_ship
   belongs_to :user
-  with_options presence: true do
-    validates :images
-    validates :item_name
-    validates :description
-    validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000 }
-  end
-  with_options presence: true, numericality: { other_than: 1 } do
-    validates :category_id
-    validates :status_id
-    validates :shipping_charge_id
-    validates :state_id
-    validates :day_to_ship_id
-  end
+  
   has_many_attached :images
+  has_many :item_tag_relations
+  has_many :tags, through: :item_tag_relations
+
 end

@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :create]
   resources :items do
     resources "orders", only: [:index, :create]
+    collection do
+      get 'search'
+    end
   end
 end

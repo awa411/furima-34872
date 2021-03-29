@@ -6,14 +6,22 @@ class ItemsController < ApplicationController
     @items = Item.includes(:user).order('created_at DESC')
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
+
   def new
-    @item = Item.new
+    @item = ItemsTag.new
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    @item = ItemsTag.new(item_params)
+   
+    if @item.valid? 
+      @item.save
+      return redirect_to root_path
     else
       render :new
     end
@@ -56,7 +64,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
-                                 :day_to_ship_id, :price, images: []).merge(user_id: current_user.id)
+    params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
+                                 :day_to_ship_id, :price, :name).merge(user_id: current_user.id, images: params[:item][:images])
   end
 end

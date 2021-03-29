@@ -10,6 +10,7 @@ require('../price_calc')
 require('../card')
 require('../preview')
 require('../card_reg')
+require('../tag')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
