@@ -21,30 +21,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("「商品の説明」を入力してください")
       end
-      it 'category_idが1(--)だと出品登録に失敗する' do
+      it 'category_idが「指定無し」だと出品登録に失敗する' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('「カテゴリー」は1以外の値にしてください')
+        expect(@item.errors.full_messages).to include('「カテゴリー」を入力してください')
       end
-      it 'status_idが1(--)だと出品登録に失敗する' do
+      it 'status_idが「指定無し」だと出品登録に失敗する' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('「商品の状態」は1以外の値にしてください')
+        expect(@item.errors.full_messages).to include('「商品の状態」を入力してください')
       end
-      it 'shipping_charge_idが1(--)だと出品登録に失敗する' do
+      it 'shipping_charge_idが「指定無し」だと出品登録に失敗する' do
         @item.shipping_charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('「配送料の負担」は1以外の値にしてください')
+        expect(@item.errors.full_messages).to include('「配送料の負担」を入力してくしてください')
       end
-      it 'state_idが1(--)だと出品登録に失敗する' do
+      it 'state_idが「指定無し」だと出品登録に失敗する' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('「発送元の地域」は1以外の値にしてください')
+        expect(@item.errors.full_messages).to include('「発送元の地域」を入力してください')
       end
-      it 'day_to_ship_idが1(--)だと出品登録に失敗する' do
+      it 'day_to_ship_idが「指定無し」だと出品登録に失敗する' do
         @item.day_to_ship_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('「発送までの日数」は1以外の値にしてください')
+        expect(@item.errors.full_messages).to include('「発送までの日数」を入力してください')
       end
       it 'priceが空だと出品登録に失敗する' do
         @item.price = nil
