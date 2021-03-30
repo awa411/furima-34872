@@ -1,5 +1,4 @@
 class OrderAddress
-
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :state_id, :postal_code, :city, :town, :building, :phone_number, :order_id, :token, :price
 
@@ -10,7 +9,7 @@ class OrderAddress
     validates :phone_number, format: {with: /\A\d{,11}\z/ }
     validates :user_id
     validates :item_id
-    validates :state_id, numericality: { other_than: 1 }
+    validates :state_id
     validates :price
   end
 

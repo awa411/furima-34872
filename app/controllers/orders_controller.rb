@@ -2,9 +2,11 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :bought_item, only: [:index, :create]
   before_action :order_record, only: :index
+  before_action :user_address, only: :index
 
   def index
-    @order_address = OrderAddress.new
+    
+    @order_address = OrderAddress.new(@user_address)
   end
   
   def create
@@ -40,6 +42,15 @@ class OrdersController < ApplicationController
   def order_record
     @item = Item.find(params[:item_id])
   end
+  
+  def user_address
+    user_address = UserAddress.find_by(user_id: current_user.id)
+    @user_address = user_address.attributes
+    @user_address.delete("id")
+    @user_address.delete("created_at")
+    @user_address.delete("updated_at")
+  end
+
   
   def bought_item
     if Order.where(item_id: params[:item_id]).exists? || current_user.id == Item.find(params[:item_id]).user_id
