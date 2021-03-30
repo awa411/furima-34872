@@ -9,13 +9,13 @@
       <%= f.label :category_id_eq, 'カテゴリー：' %>
       <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし'%>
       <%= f.label :status_id_eq, '商品の状態：' %>
-      <%= f.collection_select :status_id_eq, Status.all, :id, :name %>
+      <%= f.collection_select :status_id_eq, Status.all, :id, :name, include_blank: '指定なし' %>
       <%= f.label :shipping_charge_id_eq, '配送料の負担：' %>
-      <%= f.collection_select :shipping_charge_id_eq, ShippingCharge.all, :id, :name %>
+      <%= f.collection_select :shipping_charge_id_eq, ShippingCharge.all, :id, :name, include_blank: '指定なし' %>
       <%= f.label :state_id_eq, '発送元の地域：' %>
-      <%= f.collection_select :state_id_eq, State.all, :id, :name %>
+      <%= f.collection_select :state_id_eq, State.all, :id, :name, include_blank: '指定なし' %>
       <%= f.label :day_to_ship_id_eq, '発送までの日数：' %>
-      <%= f.collection_select :day_to_ship_id_eq, DayToShip.all, :id, :name %>
+      <%= f.collection_select :day_to_ship_id_eq, DayToShip.all, :id, :name, include_blank: '指定なし' %>
       <br>
       <%= f.submit '検索' %>
     <% end %>

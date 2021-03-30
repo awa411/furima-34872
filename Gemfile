@@ -70,6 +70,7 @@ gem 'payjp'
 gem 'aws-sdk-s3', require: false
 gem 'rails-i18n'
 gem 'ransack'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
