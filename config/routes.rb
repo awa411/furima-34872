@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :create]
   resources :items do
     resources "orders", only: [:index, :create]
+    resources "messages", only: :create
     collection do
       get 'search'
     end

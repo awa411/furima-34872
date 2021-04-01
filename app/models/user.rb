@@ -22,4 +22,5 @@ class User < ApplicationRecord
   has_many :items
   has_one :card, dependent: :destroy
   has_one :user_address
+  has_many :messages
 end
