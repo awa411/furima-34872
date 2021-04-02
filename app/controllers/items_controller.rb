@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = ItemsTag.new(item_params)
+    @item = ItemsTag.new(item_tag_params)
    
     if @item.valid? 
       @item.save
@@ -74,7 +74,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def item_params
+  def item_tag_params
+    binding.pry
     if params.include?(:item)
       params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
                                  :day_to_ship_id, :price, :name).merge(user_id: current_user.id, images: params[:item][:images])
@@ -83,4 +84,9 @@ class ItemsController < ApplicationController
         :day_to_ship_id, :price, :name).merge(user_id: current_user.id)
     end
   end
+
+  def item_params
+    params.require(:item).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
+      :day_to_ship_id, :price, images: []).merge(user_id: current_user.id)
+    end
 end

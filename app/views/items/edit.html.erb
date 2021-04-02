@@ -14,16 +14,17 @@ app/assets/stylesheets/items/new.css %>
     <%= render  partial: 'shared/error_messages', locals: {model: f.object} %>
 
 
-    <div class="img-upload">
+     <div class="img-upload" id="img-upload">
       <div class="weight-bold-text">
         出品画像
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
-        <p>
+      <div id="image-list" class="image-list"></div>
+      <div class="click-upload" id="click-upload">
+        <p id="upload-message">
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
       </div>
     </div>
 
