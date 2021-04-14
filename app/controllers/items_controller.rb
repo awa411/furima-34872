@@ -75,7 +75,6 @@ class ItemsController < ApplicationController
   end
 
   def item_tag_params
-    binding.pry
     if params.include?(:item)
       params.require(:items_tag).permit(:item_name, :description, :category_id, :status_id, :shipping_charge_id, :state_id,
                                  :day_to_ship_id, :price, :name).merge(user_id: current_user.id, images: params[:item][:images])
