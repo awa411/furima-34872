@@ -4,7 +4,7 @@
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%= search_form_for @p, url: items_items_search_path do |f| %>
       
-      <%= f.search_field :item_name_eq, placeholder: "商品名を入力して下さい" %>
+      <%= f.search_field :item_name_cont, placeholder: "商品名を入力して下さい" %>
       <%= f.submit '検索' %>
       <br>
       <div class="sub_search">
