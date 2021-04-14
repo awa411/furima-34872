@@ -102,3 +102,28 @@
   text-decoration: none;
   color: #333333;
 }
+
+#q_item_name_eq {
+  width: 86%;
+}
+
+.sub_search {
+  display: flex;
+}
+
+input#q_item_name_eq {
+  width: 94%;
+  margin-bottom: 1%;
+}
+
+select#q_category_id_eq {
+  margin-right: 1%;
+}
+
+select#q_status_id_eq {
+  margin-right: 1%;
+}
+
+select#q_shipping_charge_id_eq {
+  margin-right: 1%;
+}

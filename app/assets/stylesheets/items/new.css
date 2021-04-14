@@ -231,3 +231,22 @@
 .inc {
   font-size: 13px;
 }
+
+div#tag-field {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+input#items_tag_name {
+  width: 100%;
+  margin-top: 15px;
+}
+
+div#search-result {
+  margin-bottom: 7%;
+}
+
+.child {
+  color: gray;
+}

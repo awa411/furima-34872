@@ -3,21 +3,16 @@
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     <%= search_form_for @p, url: items_items_search_path do |f| %>
-      <%= f.label :item_name_eq, '商品名' %>
-      <%= f.search_field :item_name_eq %>
-      <br>
-      <%= f.label :category_id_eq, 'カテゴリー：' %>
-      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし'%>
-      <%= f.label :status_id_eq, '商品の状態：' %>
-      <%= f.collection_select :status_id_eq, Status.all, :id, :name, include_blank: '指定なし' %>
-      <%= f.label :shipping_charge_id_eq, '配送料の負担：' %>
-      <%= f.collection_select :shipping_charge_id_eq, ShippingCharge.all, :id, :name, include_blank: '指定なし' %>
-      <%= f.label :state_id_eq, '発送元の地域：' %>
-      <%= f.collection_select :state_id_eq, State.all, :id, :name, include_blank: '指定なし' %>
-      <%= f.label :day_to_ship_id_eq, '発送までの日数：' %>
-      <%= f.collection_select :day_to_ship_id_eq, DayToShip.all, :id, :name, include_blank: '指定なし' %>
-      <br>
+      
+      <%= f.search_field :item_name_eq, placeholder: "商品名を入力して下さい" %>
       <%= f.submit '検索' %>
+      <br>
+      <div class="sub_search">
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: 'カテゴリー'%>
+      <%= f.collection_select :status_id_eq, Status.all, :id, :name, include_blank: '商品の状態' %>
+      <%= f.collection_select :shipping_charge_id_eq, ShippingCharge.all, :id, :name, include_blank: '配送料の負担' %>
+      <%= f.collection_select :day_to_ship_id_eq, DayToShip.all, :id, :name, include_blank: '発送までの日数' %>
+      </div>
     <% end %>
   </div>
   <div class='nav'>

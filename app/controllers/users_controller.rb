@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     card = Card.find_by(user_id: current_user.id)
     
     redirect_to new_card_path and return unless card.present?
+    redirect_to root_path and return if card.present?
 
     customer = Payjp::Customer.retrieve(card.customer_token)
     @card = customer.cards.first
